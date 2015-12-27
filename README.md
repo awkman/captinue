@@ -1,5 +1,5 @@
 # captinue
-A print screen tool for continuing capature and editing later
+A print screen tool for continuing capaturing for editing later
 
 # usage
 * config the hotkey, save path, image type into config/config.ini
