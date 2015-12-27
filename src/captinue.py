@@ -14,12 +14,11 @@ SAVE_PATH = config['DEFAULT']['SAVE_PATH']
 
 def capture():
 	global index
-	print('capture')
 	file_name = SAVE_PATH + '\screen_' + str(index) + '.' + IMG_TYPE
 	ss.grab_to_file(file_name)
 	index += 1
 
 if __name__ == '__main__':
-	kl.set_trigger_key(HOTKEY)
+	kl.set_trigger_key(int(HOTKEY, 0))
 	kl.set_callback(capture)
 	kl.run()

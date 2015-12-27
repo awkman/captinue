@@ -12,16 +12,13 @@ event_types = {win32con.WM_KEYDOWN: 'key down',
 				0x105: 'key up', # WM_SYSKEYUP, used for Alt key.
 				}
 
-key_map = {'A': 0x41, 'B': 0x42}
-
 trigger_keys = []
 
 cb = False
 
 def set_trigger_key(key):
 	global trigger_keys
-	print('add trigger key' + key)
-	trigger_keys.append(key_map[key])
+	trigger_keys.append(key)
 
 def set_callback(func):
 	global cb
@@ -31,10 +28,7 @@ def run():
 	def key_handler(nCode, wParam, lParam):
 		event = KeyboardEvent(event_types[wParam], lParam[0], lParam[1],
 							  lParam[2] == 32, lParam[3])
-		print(event)
 
-		print('key_code ' + str(trigger_keys.index(event.key_code)))
-		print('key_type ' + event.event_type)
 		if event.event_type == 'key down' and event.key_code in trigger_keys:
 			cb()
 
